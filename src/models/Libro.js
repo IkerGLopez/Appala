@@ -11,8 +11,15 @@ export class Libro {
     this.publishDate = data.publish_date;
     this.publishYear = data.publish_year;
     
-    // Identificadores
+    // Identificadores para portadas (múltiples opciones)
     this.isbn = data.isbn || [];
+    this.oclc = data.oclc || [];
+    this.lccn = data.lccn || [];
+    this.olid = data.edition_key || []; // Open Library IDs
+    
+    // Portada
+    this.cover_i = data.cover_i; // ID de la portada principal
+    this.cover_edition_key = data.cover_edition_key;
    
     // Información adicional
     this.subjects = data.subject || [];

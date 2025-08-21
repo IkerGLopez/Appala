@@ -5,9 +5,37 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Colores pastel acogedores */
+  --background: #FAF7F0; /* Crema suave */
+  --foreground: #4A5568; /* Gris cálido */
+  --card: #FFFFFF; /* Blanco puro */
+  --card-foreground: #2D3748; /* Gris oscuro suave */
+  --popover: #FFFFFF;
+  --popover-foreground: #2D3748;
+  --primary: #A8DADC; /* Azul pastel */
+  --primary-foreground: #1A365D; /* Azul oscuro */
+  --secondary: #F1DDD6; /* Rosa durazno */
+  --secondary-foreground: #744C4C; /* Marrón cálido */
+  --muted: #F7FAFC; /* Gris muy claro */
+  --muted-foreground: #718096; /* Gris medio */
+  --accent: #E6FFFA; /* Verde menta */
+  --accent-foreground: #1A202C; /* Negro suave */
+  --destructive: #FED7E2; /* Rosa claro */
+  --destructive-foreground: #B83280; /* Rosa intenso */
+  --border: #E2E8F0; /* Gris claro */
+  --input: #FFFFFF; /* Blanco */
+  --ring: #A8DADC; /* Azul pastel */
+  --radius: 0.5rem;
+  
+  /* Sidebar específico */
+  --sidebar: #F7FAFC; /* Gris muy claro */
+  --sidebar-foreground: #4A5568; /* Gris cálido */
+  --sidebar-primary: #A8DADC; /* Azul pastel */
+  --sidebar-primary-foreground: #1A365D; /* Azul oscuro */
+  --sidebar-accent: #E6FFFA; /* Verde menta */
+  --sidebar-accent-foreground: #1A202C; /* Negro suave */
+  --sidebar-border: #E2E8F0; /* Gris claro */
+  --sidebar-ring: #A8DADC; /* Azul pastel */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,56 +43,60 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
+
+html {
+  height: 100%;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+#root {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--primary-foreground);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.25s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
 }
