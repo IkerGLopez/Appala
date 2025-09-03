@@ -1,5 +1,5 @@
-import { Libro } from '../models/Libro.js';
-import { Autor } from '../models/Autor.js';
+import { Libro } from '@/models/Libro.js';
+import { Autor } from '@/models/Autor.js';
 
 export class OpenLibraryService {
     static BASE_URL = 'https://openlibrary.org';

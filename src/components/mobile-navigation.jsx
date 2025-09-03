@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from './ui/button'
-import { Sidebar } from './side-bar'
+import { Button } from '@/components/ui/button'
+import { Sidebar } from '@/components/side-bar'
 
 export function MobileNavigation({ activeSection }) {
   const [isOpen, setIsOpen] = useState(false)

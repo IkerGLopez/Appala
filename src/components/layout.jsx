@@ -1,6 +1,6 @@
-import { Sidebar } from './side-bar'
-import { RightPanel } from './right-panel'
-import { MobileNavigation } from './mobile-navigation'
+import { Sidebar } from '@/components/side-bar'
+import { RightPanel } from '@/components/right-panel'
+import { MobileNavigation } from '@/components/mobile-navigation'
 
 export function Layout({ children, activeSection = "buscar" }) {
   return (

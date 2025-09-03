@@ -1,5 +1,5 @@
 import { Home, Search, MessageCircle, BookOpen, Star, Users, User } from "lucide-react"
-import { Button } from "./ui/button"
+import { Button } from "@/components/ui/button"
 
 const navigationItems = [
   { icon: Home, label: "Inicio", href: "/" },

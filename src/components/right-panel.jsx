@@ -58,34 +58,6 @@ export function RightPanel() {
             ))}
           </div>
         </div>
-
-        {/* Actividad reciente */}
-        <div>
-          <h2 className="text-lg font-semibold text-card-foreground mb-4">Actividad reciente</h2>
-          <div className="space-y-2 sm:space-y-3">
-            {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-muted/30 border border-muted">
-                <div className="w-2 h-2 rounded-full bg-primary mt-1 sm:mt-2 flex-shrink-0"></div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{activity}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Sugerencias */}
-        <div>
-          <h2 className="text-lg font-semibold text-card-foreground mb-4">Lecturas sugeridas</h2>
-          <div className="space-y-2 sm:space-y-3">
-            <div className="p-2 sm:p-3 rounded-lg border border-primary/20 bg-primary/5">
-              <p className="text-xs sm:text-sm font-medium text-card-foreground">El nombre del viento</p>
-              <p className="text-xs text-muted-foreground mt-1">Patrick Rothfuss</p>
-            </div>
-            <div className="p-2 sm:p-3 rounded-lg border border-secondary/20 bg-secondary/5">
-              <p className="text-xs sm:text-sm font-medium text-card-foreground">Kafka en la orilla</p>
-              <p className="text-xs text-muted-foreground mt-1">Haruki Murakami</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

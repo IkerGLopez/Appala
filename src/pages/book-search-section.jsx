@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Search, Loader2 } from 'lucide-react'
-import { Input } from './ui/input'
-import { Button } from './ui/button'
-import { BookCard } from './book-card'
-import { OpenLibraryService } from '../services/OpenLibraryService.js'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { BookCard } from '@/components/ui/book-card'
+import { OpenLibraryService } from '@/services/OpenLibraryService.js'
 
 export function BookSearchSection() {
   const [query, setQuery] = useState('')
@@ -38,18 +38,18 @@ export function BookSearchSection() {
   }
 
   return (
-    <div className="space-y-6">
+    <div>
       {/* Header de la sección */}
-      <div className="border-b border-border pb-4">
-        <h1 className="text-2xl font-bold text-foreground">Buscar libros</h1>
-        <p className="text-muted-foreground mt-1">
+      <header>
+        <strong>Buscar libros</strong>
+        <p>
           Explora miles de libros usando Open Library
         </p>
-      </div>
+      </header>
 
       {/* Formulario de búsqueda */}
-      <form onSubmit={buscarLibros} className="sticky top-0 bg-background/80 backdrop-blur-sm border-b border-border pb-4 z-5">
-        <div className="flex flex-col sm:flex-row gap-3">
+      <form onSubmit={buscarLibros} className="busqueda">
+        <div className="busqueda-flex">
           <Input
             type="text"
             value={query}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Card, CardContent } from './ui/card'
-import { OpenLibraryService } from '../services/OpenLibraryService.js'
+import { BookOpen } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card.jsx'
+import { OpenLibraryService } from '@/services/OpenLibraryService.js'
 
 export function BookCard({ libro }) {
   const [imageError, setImageError] = useState(false)
@@ -67,18 +68,18 @@ export function BookCard({ libro }) {
   }
 
   return (
-    <Card className="hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border-border/50">
-      <CardContent className="p-0">
+    <Card className="card">
+      <CardContent className="card-content">
         {/* Portada */}
-        <div className="h-40 sm:h-48 bg-gradient-to-br from-primary/5 to-secondary/5 flex items-center justify-center rounded-t-lg overflow-hidden">
+        <div className="card-flex">
           {urlActual && !imageError ? (
             <img
               src={urlActual}
               alt={`Portada de ${libro.title}`}
-              className="h-full w-auto object-cover"
+              title={`Portada de ${libro.title}`}
+              className="portada"
               onError={manejarErrorImagen}
               onLoad={(e) => {
-                // Verificar si la imagen es el placeholder "Image not available"
                 const img = e.target
                 if (img.naturalWidth === 1 && img.naturalHeight === 1) {
                   manejarErrorImagen()
@@ -86,68 +87,51 @@ export function BookCard({ libro }) {
               }}
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center text-muted-foreground bg-muted/20">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl mb-2">📖</div>
-                <span className="text-xs sm:text-sm">Sin portada</span>
-              </div>
-            </div>
+                <span> <BookOpen className="sin-portada" /> </span>
           )}
         </div>
         
         {/* Información del libro */}
-        <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
-          <h3 className="font-semibold text-base sm:text-lg text-card-foreground line-clamp-2 leading-tight">
+        <div className="book-info">
+          <strong>
             {libro.title}
-          </h3>
+          </strong>
           
-          {libro.authorNames && libro.authorNames.length > 0 && (
-            <div className="flex items-start gap-2">
-              <span className="text-xs text-muted-foreground font-medium mt-0.5 flex-shrink-0">Autor(es):</span>
-              <span className="text-xs sm:text-sm text-card-foreground">
+          {libro.authorNames && libro.authorNames.length == 1 && (
+            <div className="autores-flex">
+              <strong>Autor:</strong>
+              <span>
+                {libro.authorNames.slice(0, 2).join(', ')}
+                {libro.authorNames.length > 2 && '...'}
+              </span>
+            </div>
+          )}
+
+          {libro.authorNames && libro.authorNames.length > 1 && (
+            <div className="autores-flex">
+              <strong>Autores:</strong>
+              <span>
                 {libro.authorNames.slice(0, 2).join(', ')}
                 {libro.authorNames.length > 2 && '...'}
               </span>
             </div>
           )}
           
-          <div className="flex items-center justify-between text-xs sm:text-sm">
+          <div className="edicion-flex">
+            {libro.editionCount && (
+              <span>
+                {libro.editionCount} ed.
+              </span>
+            )}
+
             {libro.firstPublishYear && (
-              <span className="text-muted-foreground">
+              <span>
                 {libro.firstPublishYear}
               </span>
             )}
             
-            {libro.editionCount && (
-              <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">
-                {libro.editionCount} ed.
-              </span>
-            )}
           </div>
           
-          {libro.publishers && libro.publishers.length > 0 && (
-            <div className="text-xs text-muted-foreground">
-              <span className="font-medium">Editorial:</span> {libro.publishers[0]}
-            </div>
-          )}
-          
-          {libro.subjects && libro.subjects.length > 0 && (
-            <div className="flex flex-wrap gap-1 mt-2 sm:mt-3">
-              {libro.subjects.slice(0, 2).map((subject, idx) => (
-                <span
-                  key={idx}
-                  className="inline-block bg-primary/10 text-primary border border-primary/20 text-xs px-2 py-1 rounded-full"
-                >
-                  {subject}
-                </span>
-              ))}
-              {libro.subjects.length > 2 && (
-                <span className="text-xs text-muted-foreground px-2 py-1">
-                  +{libro.subjects.length - 2}
-                </span>
-              )}
-            </div>
-          )}
         </div>
       </CardContent>
     </Card>

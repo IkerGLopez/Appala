@@ -1,31 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
-
-  /* Colores pastel acogedores */
-  --background: #FAF7F0; /* Crema suave */
-  --foreground: #4A5568; /* Gris cálido */
-  --card: #FFFFFF; /* Blanco puro */
-  --card-foreground: #2D3748; /* Gris oscuro suave */
-  --popover: #FFFFFF;
-  --popover-foreground: #2D3748;
-  --primary: #A8DADC; /* Azul pastel */
-  --primary-foreground: #1A365D; /* Azul oscuro */
-  --secondary: #F1DDD6; /* Rosa durazno */
-  --secondary-foreground: #744C4C; /* Marrón cálido */
-  --muted: #F7FAFC; /* Gris muy claro */
-  --muted-foreground: #718096; /* Gris medio */
-  --accent: #E6FFFA; /* Verde menta */
-  --accent-foreground: #1A202C; /* Negro suave */
-  --destructive: #FED7E2; /* Rosa claro */
-  --destructive-foreground: #B83280; /* Rosa intenso */
-  --border: #E2E8F0; /* Gris claro */
-  --input: #FFFFFF; /* Blanco */
-  --ring: #A8DADC; /* Azul pastel */
-  --radius: 0.5rem;
   
   /* Sidebar específico */
   --sidebar: #F7FAFC; /* Gris muy claro */
